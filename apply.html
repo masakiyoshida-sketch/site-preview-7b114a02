@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無料体験・入会のお申し込み｜練馬西東京スポーツ教室</title>
+<meta name="description" content="練馬西東京スポーツ教室の無料体験・入会お申し込みフォーム。体操・かけっこ・タンブリング・スラックライン・ダブルダッチ。在校生・近隣校のお子さまは体験無料です。">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="無料体験・入会のお申し込み｜練馬西東京スポーツ教室">
+<meta property="og:description" content="ご希望のクラスと日程をお送りください。事務局から折り返しご連絡します。">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logo-square.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1f6fe0; --blue-deep:#1659bd; --blue-ink:#15284a; --blue-soft:#a9caf6;
+    --yellow:#ffc828; --yellow-soft:#ffe18c; --yellow-deep:#c98a00;
+    --amber-ink:#8f6000;   /* 文字用。白/薄青の上で4.5:1以上を確保 */
+    --sky:#eaf3ff; --sky2:#dcebff; --cream:#fffdf5;
+    --paper:#ffffff; --ink:#243043; --mut:#5d6b84;
+    --ring:rgba(31,111,224,.2);
+    --shadow:0 18px 40px -20px rgba(21,40,74,.32);
+    --shadow-sm:0 8px 22px -13px rgba(21,40,74,.28);
+    --err:#d63b3b;
+    --r:22px;
+    --disp:"Zen Maru Gothic",system-ui,sans-serif;
+    --body:"Noto Sans JP",system-ui,sans-serif;
+    --num:"Baloo 2",var(--disp);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.78;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{width:min(1120px,92vw);margin-inline:auto}
+  a{color:inherit;text-decoration:none}
+  :where(a,button):focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+  footer a:focus-visible{outline-color:var(--yellow)}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:saturate(1.3) blur(12px);border-bottom:1px solid #e9eef6}
+  .nav{display:flex;align-items:center;gap:12px;height:64px}
+  .logo{display:flex;align-items:center;min-height:44px;gap:9px;font-family:var(--disp);font-weight:900;color:var(--blue-ink)}
+  .logo .mark-img{width:36px;height:auto;display:block;flex:0 0 auto}
+  .logo .site-name{white-space:nowrap;font-size:clamp(.8rem,3.2vw,1.02rem);letter-spacing:.01em}
+  .nav .spacer{flex:1}
+  .nav nav{display:none;gap:22px;font-size:.92rem;font-weight:500;color:var(--mut)}
+  .nav nav a:hover{color:var(--blue)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-weight:700;border-radius:999px;padding:11px 20px;font-size:.92rem;transition:transform .18s;white-space:nowrap;border:0;cursor:pointer}
+  .btn-cta{background:var(--yellow);color:var(--blue-ink);box-shadow:0 10px 22px -10px rgba(255,200,40,.85)}
+  .btn-cta:hover{transform:translateY(-2px)}
+  .btn-cta:disabled{opacity:.55;cursor:progress;transform:none}
+  .btn-ghost{background:#fff;color:var(--blue);border:2px solid var(--ring)}
+  .login{font-size:.8rem;color:var(--mut)}
+
+  .page-head{background:linear-gradient(180deg,var(--cream),var(--sky));padding:38px 0 34px;position:relative;overflow:hidden}
+  .page-head .blob{position:absolute;border-radius:50%;z-index:0}
+  /* 装飾の丸はトップページと同じ作法（右上の角に1つだけ・本文に被せない） */
+  .b1{width:126px;height:126px;background:var(--yellow);top:-52px;right:-44px}
+  .crumb{position:relative;z-index:2;font-size:.8rem;color:var(--mut);font-weight:500}
+  .crumb a:hover{color:var(--blue)}
+  .page-head h1{position:relative;z-index:2;font-family:var(--disp);font-weight:900;color:var(--blue-ink);font-size:clamp(1.7rem,6.5vw,2.5rem);line-height:1.28;margin:10px 0 10px}
+  .page-head h1 em{font-style:normal;position:relative;z-index:1}
+  .page-head h1 em::after{content:"";position:absolute;left:-2px;right:-2px;bottom:.04em;height:.4em;background:var(--yellow);border-radius:6px;z-index:-1}
+  .page-head p{position:relative;z-index:2;color:var(--mut);font-size:.95rem;max-width:46ch}
+
+  main{padding:34px 0 66px;background:#fff}
+  .layout{display:grid;gap:24px}
+
+  .guide{background:var(--sky);border-radius:var(--r);padding:22px 24px}
+  .guide h2{font-family:var(--disp);font-weight:900;color:var(--blue-ink);font-size:1.05rem;margin-bottom:12px}
+  .guide ol{list-style:none;display:grid;gap:12px}
+  .guide li{display:flex;gap:12px;align-items:flex-start;font-size:.88rem;color:var(--mut)}
+  .guide li b{display:block;color:var(--blue-ink);font-family:var(--disp);font-size:.95rem}
+  .guide .n{flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:var(--yellow);color:var(--blue-ink);font-family:var(--num);font-weight:800;display:grid;place-items:center;font-size:.9rem}
+  .guide .note{margin-top:14px;padding-top:13px;border-top:1px dashed #c9dbf6;font-size:.82rem;color:var(--mut)}
+  .guide .note b{color:var(--amber-ink)}
+
+  form{display:grid;gap:22px}
+  fieldset{border:1px solid #eaeff6;border-radius:var(--r);padding:24px 22px;box-shadow:var(--shadow-sm);background:#fff}
+  legend{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:900;color:var(--blue-ink);font-size:1.08rem;padding:0 6px}
+  legend .sn{flex:0 0 30px;height:30px;border-radius:10px;background:var(--sky);color:var(--blue);font-family:var(--num);font-weight:800;display:grid;place-items:center;font-size:.95rem}
+  .fs-note{font-size:.83rem;color:var(--mut);margin:10px 0 4px}
+
+  .grid{display:grid;gap:16px;margin-top:16px}
+  .f{display:grid;gap:6px;scroll-margin-top:84px}   /* エラー時のジャンプ先が固定ヘッダーに隠れないように */
+  .f > label{font-family:var(--disp);font-weight:700;font-size:.88rem;color:var(--blue-ink);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .req,.opt{font-size:.68rem;font-weight:700;border-radius:999px;padding:2px 8px;line-height:1.6}
+  .req{background:#ffe9e9;color:var(--err)}
+  .opt{background:#eef2f8;color:var(--mut)}
+  .hint{font-size:.78rem;color:var(--mut);font-weight:400}
+  input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{
+    width:100%;font-family:var(--body);font-size:1rem;color:var(--ink);background:#fff;
+    border:1.5px solid #dbe4f0;border-radius:14px;padding:12px 14px;transition:border-color .15s,box-shadow .15s}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px var(--ring)}
+  input[aria-invalid="true"],select[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--err);box-shadow:0 0 0 4px rgba(214,59,59,.13)}
+  select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235d6b84' stroke-width='2.4' stroke-linecap='round'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+  textarea{resize:vertical;min-height:96px}
+  .err-msg{font-size:.8rem;color:var(--err);font-weight:500;display:none}
+  .f.bad .err-msg{display:block}
+
+  .pills{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+  .pill{position:relative}
+  .pill input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+  .pill span{display:block;height:100%;text-align:center;border:2px solid #e3eaf5;border-radius:16px;padding:16px 10px;cursor:pointer;transition:.16s}
+  .pill span b{display:block;font-family:var(--disp);font-weight:900;color:var(--blue-ink);font-size:1.02rem}
+  .pill span small{color:var(--mut);font-size:.78rem}
+  .pill input:checked + span{border-color:var(--yellow);background:#fffbee;box-shadow:0 12px 26px -18px rgba(255,200,40,.9)}
+  .pill input:focus-visible + span{box-shadow:0 0 0 4px var(--ring)}
+
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+  .submit-area{background:var(--sky);border-radius:var(--r);padding:24px 22px;text-align:center}
+  .submit-area .privacy{font-size:.8rem;color:var(--mut);max-width:44ch;margin:0 auto 16px}
+  .submit-area .btn-cta{font-size:1.05rem;padding:16px 34px}
+  .form-error{display:none;background:#fff0f0;border:1.5px solid #f3c9c9;color:var(--err);border-radius:14px;padding:12px 16px;font-size:.86rem;font-weight:500;text-align:left;margin-bottom:16px}
+  .form-error.on{display:block}
+
+  .done{display:none;background:#fff;border:1px solid #eaeff6;border-radius:var(--r);box-shadow:var(--shadow);padding:38px 26px;text-align:center}
+  .done.on{display:block}
+  .done .mark{width:66px;height:66px;border-radius:50%;background:var(--yellow);color:var(--blue-ink);display:grid;place-items:center;margin:0 auto 16px}
+  .done h2{font-family:var(--disp);font-weight:900;color:var(--blue-ink);font-size:1.4rem;text-wrap:balance}
+  .done p{color:var(--mut);font-size:.92rem;margin-top:10px;max-width:46ch;margin-inline:auto}
+  .done .back{margin-top:22px}
+
+  footer{background:var(--blue-ink);color:#b9c6dd;padding:46px 0 30px;font-size:.86rem}
+  .foot-grid{display:grid;gap:26px}
+  .foot-logo{display:block}
+  .foot-logo img{width:170px;height:auto;display:block;opacity:.95}
+  footer h5{color:#fff;font-family:var(--disp);font-size:.95rem;margin-bottom:10px}
+  footer a{display:block;padding:10px 0;color:#b9c6dd}   /* スマホで指が当たる高さ（44px相当）を確保 */
+  footer a:hover{color:var(--yellow)}
+  .copy{margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:.78rem;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between}
+
+  @media(min-width:820px){
+    .nav nav{display:flex}
+    .page-head{padding:52px 0 46px}
+    .page-head .wrap{max-width:820px}   /* 見出しとフォームの左端をそろえる */
+    .layout{grid-template-columns:1fr;max-width:820px;margin-inline:auto}
+    .guide ol{grid-template-columns:repeat(3,1fr)}
+    .guide li{flex-direction:column;gap:8px}
+    .g2{grid-template-columns:1fr 1fr}
+    .g3{grid-template-columns:1fr 1fr 1fr}
+    .foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}
+  }
+  .hide-sp{display:none}
+  @media(min-width:560px){.hide-sp{display:inline-flex}}
+  /* 小さい端末ではヘッダーの要素が入りきらず横スクロールが出るため詰める */
+  @media(max-width:359px){.logo .site-name{display:none}}
+  @media(max-width:420px){
+    .nav{gap:6px}
+    .logo .mark-img{width:30px}
+    .logo .site-name{font-size:.82rem}
+    header .btn{padding:10px 14px;font-size:.86rem}
+  }
+</style>
+</head>
+<body>
+<div style="position:sticky;top:0;z-index:99;background:#c2410c;color:#fff;text-align:center;font-size:13px;font-weight:700;padding:6px 10px;font-family:sans-serif">確認用プレビューです（公開前・URLは口外しないでください）</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="index.html" aria-label="練馬西東京スポーツ教室 トップ"><img class="mark-img" src="assets/mark.svg" alt=""><span class="site-name">練馬西東京スポーツ教室</span></a>
+    <span class="spacer"></span>
+    <nav><a href="index.html#programs">教室</a><a href="index.html#transfer">振替制度</a><a href="index.html#price">料金</a><a href="index.html#venues">会場</a><a href="index.html#about">法人について</a></nav>
+    <a class="login hide-sp" href="https://nposa.jp/club_admin/login">会員ログイン</a>
+    <a class="btn btn-ghost" href="index.html">トップへ</a>
+  </div>
+</header>
+
+<section class="page-head">
+  <span class="blob b1"></span>
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">トップ</a> ／ お申し込み</div>
+    <h1>無料体験・入会の<br><em>お申し込み</em></h1>
+    <p>ご希望のクラスと日程をお送りください。事務局から2〜3日以内にご連絡します。在校生・近隣校のお子さまは体験無料です。</p>
+  </div>
+</section>
+
+<main>
+  <div class="wrap layout">
+
+    <div class="guide" id="guide">
+      <h2>お申し込みの流れ</h2>
+      <ol>
+        <li><span class="n">1</span><div><b>フォームを送信</b>ご希望のクラス・日程をお知らせください。</div></li>
+        <li><span class="n">2</span><div><b>事務局からご連絡</b>2〜3日以内にメールでお返事します。日程を調整します。</div></li>
+        <li><span class="n">3</span><div><b>体験・ご入会</b>当日は動きやすい服装でお越しください。</div></li>
+      </ol>
+      <div class="note">＊ 3日以上返信がない場合は、迷惑メールフォルダをご確認のうえ <b>info@nposa.jp</b> までお問い合わせください。</div>
+    </div>
+
+    <form id="applyForm" novalidate>
+      <input type="text" class="hp" id="hpField" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <fieldset>
+        <legend><span class="sn">1</span>お申し込みの種類</legend>
+        <div class="pills">
+          <label class="pill"><input type="radio" name="kubun" value="体験" checked><span><b>無料体験</b><small>まずは1回試したい</small></span></label>
+          <label class="pill"><input type="radio" name="kubun" value="入会"><span><b>入会</b><small>体験ずみ・そのまま入会</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="sn">2</span>ご希望のクラス</legend>
+        <div class="grid">
+          <div class="f" id="f-class">
+            <label for="wishClass">希望クラス<span class="req">必須</span></label>
+            <select id="wishClass" name="wishClass" required>
+              <option value="">選択してください</option>
+              <optgroup label="体操">
+                <option>南小体操教室 園児・低学年クラス（水）</option>
+                <option>南小体操教室 高学年クラス（水）</option>
+                <option>栄小体操教室 園児・低学年クラス（火）</option>
+                <option>栄小体操教室 高学年クラス（火）</option>
+                <option>下石小体操教室 園児・低学年チーム（木）</option>
+                <option>下石小体操教室 高学年クラス（木・3年生以上推奨）</option>
+                <option>そらぐみ体操教室 Kidsクラス（金）</option>
+                <option>そらぐみ体操教室 Midクラス１（金）</option>
+                <option>そらぐみ体操教室 Midクラス２（金）</option>
+                <option>そらぐみ体操教室 Highクラス（金）</option>
+              </optgroup>
+              <optgroup label="かけっこ">
+                <option>南小かけっこ教室 小学生（月）</option>
+                <option>下石小かけっこ教室 小学生クラス（火）</option>
+              </optgroup>
+              <optgroup label="スラックライン">
+                <option>スラックライン教室 定期教室（金）</option>
+                <option>スラックライン教室 中高学生クラス（金）</option>
+              </optgroup>
+              <optgroup label="ダブルダッチ">
+                <option>ダブルダッチ教室（火）</option>
+              </optgroup>
+              <optgroup label="タンブリング・バク転／開放クラス（単発参加）">
+                <option>南小 バク転教室（水・単発参加のみ）</option>
+                <option>下石小タンブリング教室（木・単発参加のみ）</option>
+                <option>【チア限定】下石小タンブリング教室（火・単発参加のみ）</option>
+                <option>スラックライン開放（土・単発参加のみ）</option>
+                <option>スラックライン開放（木・単発参加のみ）</option>
+              </optgroup>
+              <optgroup label="その他">
+                <option>まだ決めていない・相談したい</option>
+              </optgroup>
+            </select>
+            <span class="hint" id="classHint">迷ったら「まだ決めていない・相談したい」でも大丈夫です。</span>
+            <span class="err-msg">希望クラスを選択してください。</span>
+          </div>
+          <div class="f" id="f-date">
+            <label for="wishDate">希望日<span class="req">必須</span></label>
+            <input type="date" id="wishDate" name="wishDate" required>
+            <span class="hint">第2希望や「毎週◯曜なら可」などは、下の備考欄にご記入ください。</span>
+            <span class="err-msg">希望日を入力してください（過去の日付は選べません）。</span>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="sn">3</span>参加される方について</legend>
+        <div class="grid g2">
+          <div class="f" id="f-lastName">
+            <label for="lastName">姓<span class="req">必須</span></label>
+            <input type="text" id="lastName" name="lastName" autocomplete="family-name" required>
+            <span class="err-msg">姓を入力してください。</span>
+          </div>
+          <div class="f" id="f-firstName">
+            <label for="firstName">名<span class="req">必須</span></label>
+            <input type="text" id="firstName" name="firstName" autocomplete="given-name" required>
+            <span class="err-msg">名を入力してください。</span>
+          </div>
+          <div class="f" id="f-lastKana">
+            <label for="lastKana">せい<span class="req">必須</span><span class="hint">ひらがな</span></label>
+            <input type="text" id="lastKana" name="lastKana" required>
+            <span class="err-msg">ひらがなで入力してください。</span>
+          </div>
+          <div class="f" id="f-firstKana">
+            <label for="firstKana">めい<span class="req">必須</span><span class="hint">ひらがな</span></label>
+            <input type="text" id="firstKana" name="firstKana" required>
+            <span class="err-msg">ひらがなで入力してください。</span>
+          </div>
+          <div class="f" id="f-birth">
+            <label for="birthDate">生年月日<span class="req">必須</span></label>
+            <input type="date" id="birthDate" name="birthDate" required>
+            <span class="err-msg">生年月日を入力してください。</span>
+          </div>
+          <div class="f">
+            <label for="gender">性別<span class="opt">任意</span></label>
+            <select id="gender" name="gender">
+              <option value="">回答しない</option>
+              <option>男</option>
+              <option>女</option>
+            </select>
+          </div>
+          <div class="f" style="grid-column:1/-1">
+            <label for="school">所属の学校・園<span class="opt">任意</span><span class="hint">中学生以下の方はご記入ください</span></label>
+            <input type="text" id="school" name="school" placeholder="例）大泉南小学校 2年">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="sn">4</span>保護者・ご連絡先</legend>
+        <p class="fs-note">ご連絡は原則メールでお送りします。お間違いがないかご確認ください。</p>
+        <div class="grid g2">
+          <div class="f" id="f-email" style="grid-column:1/-1">
+            <label for="email">メールアドレス<span class="req">必須</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="example@example.com" required>
+            <span class="err-msg">メールアドレスの形式をご確認ください。</span>
+          </div>
+          <div class="f" id="f-phone">
+            <label for="phone">電話番号<span class="req">必須</span></label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="09012345678" required>
+            <span class="err-msg">電話番号は数字10〜11桁でご入力ください（ハイフンは任意）。</span>
+          </div>
+          <div class="f">
+            <label for="guardianName">保護者氏名<span class="opt">任意</span></label>
+            <input type="text" id="guardianName" name="guardianName">
+          </div>
+          <div class="f">
+            <label for="guardianRelation">続柄<span class="opt">任意</span></label>
+            <select id="guardianRelation" name="guardianRelation">
+              <option value="">選択してください</option>
+              <option>父</option><option>母</option><option>祖父</option><option>祖母</option><option>その他</option>
+            </select>
+          </div>
+          <div class="f">
+            <label for="postalCode">郵便番号<span class="opt">任意</span></label>
+            <input type="text" id="postalCode" name="postalCode" inputmode="numeric" placeholder="123-4567">
+          </div>
+          <div class="f" style="grid-column:1/-1">
+            <label for="address">ご住所<span class="opt">任意</span></label>
+            <input type="text" id="address" name="address" autocomplete="street-address">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="sn">5</span>その他</legend>
+        <div class="grid">
+          <div class="f">
+            <label for="memo">ご質問・ご要望など<span class="opt">任意</span></label>
+            <textarea id="memo" name="memo" placeholder="第2希望の日程、きょうだいでの参加、アレルギーや配慮が必要なことなど"></textarea>
+          </div>
+          <div class="f">
+            <label for="referrer">紹介者<span class="opt">任意</span></label>
+            <input type="text" id="referrer" name="referrer" placeholder="例）◯◯さんの紹介／チラシを見て">
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="submit-area">
+        <div class="form-error" id="formError" role="alert"></div>
+        <p class="privacy">ご記入いただいた情報は、体験・入会のご案内および教室運営の目的にのみ使用します。</p>
+        <button type="submit" class="btn btn-cta" id="submitBtn">この内容で申し込む →</button>
+      </div>
+    </form>
+
+    <div class="done" id="donePanel" role="status">
+      <div class="mark"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h2>お申し込みを受け付けました</h2>
+      <p>ご入力のメールアドレス宛に、受付の確認メールをお送りしました。事務局から2〜3日以内にご連絡します。<br>メールが届かない場合は迷惑メールフォルダをご確認ください。</p>
+      <div class="back"><a class="btn btn-ghost" href="index.html">トップページへ戻る</a></div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <a class="foot-logo" href="index.html"><img src="assets/logo-yoko-white.svg" alt="SPORTS ASSISTANTS"></a>
+      <p style="margin-top:14px;max-width:30ch">特定非営利活動法人 Sports Assistants が運営する、出張型スポーツ教室です。</p>
+    </div>
+    <div><h5>教室</h5><a href="index.html#programs">子ども体操</a><a href="index.html#programs">タンブリング</a><a href="index.html#programs">かけっこ</a><a href="index.html#programs">スラックライン</a><a href="index.html#programs">ダブルダッチ</a></div>
+    <div><h5>ご案内</h5><a href="index.html#news">お知らせ</a><a href="index.html#price">料金</a><a href="index.html#transfer">振替制度</a><a href="index.html#venues">会場</a></div>
+    <div><h5>お問い合わせ</h5><a href="mailto:info@nposa.jp">info@nposa.jp</a><a href="https://nposa.jp/club_admin/login">会員ログイン</a></div>
+  </div>
+  <div class="wrap copy"><span>© Sports Assistants</span><span>最終更新 2026-08-17</span></div>
+</footer>
+
+<script>
+  // 申込受付GAS（.company/sites/sports-school/scripts/apply-form）の exec URL。
+  // 空にするとテストモード（送信せず入力チェックだけ行う）。
+  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxhuRs_xVzCu-bms1PYZ6ISvyFj2wR7rZYA-Nl-6AS_wPgjwp8EWPxGp87ca6o251eO/exec';
+
+  const form = document.getElementById('applyForm');
+  const formError = document.getElementById('formError');
+  const submitBtn = document.getElementById('submitBtn');
+  const openedAt = Date.now();
+
+  // 希望日・生年月日の入力範囲
+  const today = new Date();
+  // ローカル日付で扱う（toISOString はUTCのため、JST未明に前日扱いになる）
+  const iso = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  document.getElementById('wishDate').min = iso(today);
+  document.getElementById('birthDate').max = iso(today);
+
+  const KANA_RE = /^[ぁ-んー　\s]+$/;
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  // 全角数字→半角、ハイフン・空白を除去したうえで「0始まりの10〜11桁」で判定
+  function normalizePhone(s) {
+    return String(s || '')
+      .replace(/[０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0))
+      .replace(/[-‐－ー―\s()（）]/g, '');
+  }
+  const isPhoneOk = s => /^0\d{9,10}$/.test(normalizePhone(s));
+
+  function setBad(fieldId, bad) {
+    const f = document.getElementById(fieldId);
+    if (!f) return;
+    f.classList.toggle('bad', bad);
+    const input = f.querySelector('input,select,textarea');
+    if (input) input.setAttribute('aria-invalid', bad ? 'true' : 'false');
+  }
+
+  function validate() {
+    const v = id => String(document.getElementById(id).value || '').trim();
+    const bad = [];
+    const check = (fieldId, ok) => { setBad(fieldId, !ok); if (!ok) bad.push(fieldId); };
+
+    check('f-class', !!v('wishClass'));
+    check('f-date', !!v('wishDate') && v('wishDate') >= iso(today));
+    check('f-lastName', !!v('lastName'));
+    check('f-firstName', !!v('firstName'));
+    check('f-lastKana', KANA_RE.test(v('lastKana')));
+    check('f-firstKana', KANA_RE.test(v('firstKana')));
+    check('f-birth', !!v('birthDate') && v('birthDate') <= iso(today));
+    check('f-email', EMAIL_RE.test(v('email')));
+    check('f-phone', isPhoneOk(v('phone')));
+    return bad;
+  }
+
+  function collect() {
+    const v = id => String(document.getElementById(id).value || '').trim();
+    return {
+      kubun: (form.querySelector('input[name=kubun]:checked') || {}).value || '体験',
+      wishClass: v('wishClass'), wishDate: v('wishDate'),
+      lastName: v('lastName'), firstName: v('firstName'),
+      lastKana: v('lastKana'), firstKana: v('firstKana'),
+      birthDate: v('birthDate'), gender: v('gender'), school: v('school'),
+      email: v('email'), phone: v('phone'),
+      guardianName: v('guardianName'), guardianRelation: v('guardianRelation'),
+      postalCode: v('postalCode'), address: v('address'),
+      memo: v('memo'), referrer: v('referrer'),
+      hp: v('hpField'), elapsedMs: Date.now() - openedAt
+    };
+  }
+
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    formError.classList.remove('on');
+
+    const bad = validate();
+    if (bad.length) {
+      formError.textContent = '未入力または形式が正しくない項目が ' + bad.length + ' 件あります。赤色の項目をご確認ください。';
+      formError.classList.add('on');
+      const first = document.getElementById(bad[0]);
+      first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const input = first.querySelector('input,select,textarea');
+      if (input) setTimeout(() => input.focus({ preventScroll: true }), 350);
+      return;
+    }
+
+    const payload = collect();
+
+    if (!ENDPOINT) {   // フェーズ1（GAS未接続）のテストモード
+      console.log('[テストモード] 送信内容', payload);
+      formError.textContent = 'テストモードです（送信先は未設定）。入力内容に問題はありません。';
+      formError.classList.add('on');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中…';
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },  // プリフライト回避
+        body: JSON.stringify(payload),
+        redirect: 'follow'
+      });
+      const data = await res.json();
+      if (!data || data.ok !== true) throw new Error((data && data.message) || '送信に失敗しました');
+      form.style.display = 'none';
+      document.getElementById('guide').style.display = 'none';
+      document.getElementById('donePanel').classList.add('on');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (err) {
+      console.error(err);
+      formError.innerHTML = '送信できませんでした。時間をおいて再度お試しいただくか、お手数ですが <a href="mailto:info@nposa.jp" style="text-decoration:underline">info@nposa.jp</a> までメールでご連絡ください。';
+      formError.classList.add('on');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'この内容で申し込む →';
+    }
+  });
+
+  // 選択したクラスの曜日と、単発クラスかどうかをその場で伝える（申込後の行き違いを防ぐ）
+  const classHint = document.getElementById('classHint');
+  const HINT_DEFAULT = classHint.textContent;
+  document.getElementById('wishClass').addEventListener('change', (ev) => {
+    const label = ev.target.value;
+    const day = (label.match(/（([月火水木金土日])[・）]/) || [])[1];
+    if (!day) { classHint.textContent = HINT_DEFAULT; return; }
+    classHint.textContent = label.includes('単発')
+      ? `このクラスは毎週${day}曜です。単発参加のみのクラスのため、体験ではなく1回ごとのお申し込みになります。`
+      : `このクラスは毎週${day}曜です。希望日は${day}曜の日付をお選びください。`;
+  });
+
+  // 一度エラーになった項目は、入力し直した時点で赤を消す
+  form.addEventListener('input', (ev) => {
+    const f = ev.target.closest('.f');
+    if (f && f.classList.contains('bad')) { f.classList.remove('bad'); ev.target.setAttribute('aria-invalid', 'false'); }
+  });
+</script>
+</body>
+</html>

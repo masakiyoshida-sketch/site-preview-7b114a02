@@ -141,6 +141,12 @@
   .card h3{font-family:var(--disp);font-weight:900;color:var(--blue-ink);font-size:1.25rem}
   .card .meta{font-size:.8rem;color:var(--amber-ink);font-weight:700;font-family:var(--disp);margin:2px 0 8px}
   .card p{font-size:.9rem;color:var(--mut)}
+  a.card{display:block}   /* 教室カードは詳細ページへのリンク（aは既定でインライン） */
+  .card .more{display:inline-flex;align-items:center;gap:5px;margin-top:12px;font-family:var(--disp);
+    font-weight:700;font-size:.85rem;color:var(--blue)}
+  .card:hover .more{gap:9px}
+  .card .more svg{transition:transform .18s}
+  a.card:hover .more svg{transform:translateX(2px)}
 
   .feature{background:var(--sky)}
   .feature-box{background:#fff;border-radius:28px;box-shadow:var(--shadow);overflow:hidden;border:1px solid #e6eefb}
@@ -262,14 +268,18 @@
   <div class="wrap nav">
     <a class="logo" href="#" aria-label="練馬西東京スポーツ教室 トップ"><img class="mark-img" src="assets/mark.svg" alt=""><span class="site-name">練馬西東京スポーツ教室</span></a>
     <span class="spacer"></span>
-    <nav><a href="#news">お知らせ</a><a href="#programs">教室</a><a href="#transfer">振替制度</a><a href="#price">料金</a><a href="#venues">会場</a><a href="#about">法人について</a></nav>
+    <nav><a href="#news">お知らせ</a><a href="#programs">教室</a><a href="schedule.html">スケジュール</a><a href="#transfer">振替制度</a><a href="#price">料金</a><a href="#venues">会場</a></nav>
     <a class="login hide-sp" href="https://nposa.jp/club_admin/login">会員ログイン</a>
     <a class="btn btn-cta" href="apply.html">無料体験</a>
     <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu" aria-label="メニューを開く"><span></span></button>
   </div>
   <div id="menu">
     <div class="wrap">
-      <a href="#news">お知らせ</a><a href="#programs">教室</a><a href="#transfer">振替制度</a><a href="#price">料金</a><a href="#venues">会場</a><a href="#about">法人について</a>
+      <a href="#news">お知らせ</a>
+      <a href="#programs">教室</a>
+      <div class="sub" data-menu-programs><a href="classes/taiso.html">子ども体操</a><a href="classes/tumbling.html">タンブリング</a><a href="classes/kakekko.html">かけっこ</a><a href="classes/slackline.html">スラックライン</a><a href="classes/doubledutch.html">ダブルダッチ&amp;なわとび</a></div>
+      <a href="schedule.html">スケジュール</a>
+      <a href="#transfer">振替制度</a><a href="#price">料金</a><a href="#venues">会場</a><a href="#about">法人について</a>
       <a href="https://nposa.jp/club_admin/login">会員ログイン（在籍の方）</a>
     </div>
   </div>
@@ -325,11 +335,11 @@
   <div class="wrap">
     <div class="sec-head reveal"><div class="sec-tag">PROGRAMS</div><h2 data-copy-id="TOP-PRG-01">5つの教室</h2><p class="sec-sub" data-copy-id="TOP-PRG-02">未就学児から小学生、大人まで。レベルや目的に合わせて選べます。</p></div>
     <div class="prog-grid">
-      <div class="card reveal photo" data-photo-slot="IMG-PRG-01"><span class="photo-top"><img src="assets/img/class-taiso-01.jpg" style="object-position:center 32%" alt="子ども体操の教室風景" loading="lazy"></span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.4"/><path d="M5 21l4-7 3 2 3-2 4 7M12 7v6"/></svg></div><h3 data-copy-id="TOP-PRG-03">子ども体操</h3><div class="meta" data-copy-id="TOP-PRG-04">主力 ・ 9クラス</div><p data-copy-id="TOP-PRG-05">マット・跳び箱・鉄棒の基礎から。運動の土台をつくる人気No.1。</p></div>
-      <div class="card reveal photo" data-photo-slot="IMG-PRG-02"><span class="photo-top"><img src="assets/img/class-tumbling-01.jpg" alt="タンブリングの教室風景" loading="lazy"></span><span class="tag">人気</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c4-6 12-6 16 0M7 12c2-3 8-3 10 0"/><circle cx="12" cy="6" r="2"/></svg></div><h3 data-copy-id="TOP-PRG-06">タンブリング</h3><div class="meta" data-copy-id="TOP-PRG-07">バク転に挑戦 ・ 単発参加のクラス</div><p data-copy-id="TOP-PRG-08">側転・ロンダート・バク転へ。できる技がどんどん増える達成感。</p></div>
-      <div class="card reveal photo" data-photo-slot="IMG-PRG-03"><span class="photo-top"><img src="assets/img/class-kakekko-01.jpg" style="object-position:center 62%" alt="かけっこの教室風景" loading="lazy"></span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h6l3-12 3 9 2-4h4"/></svg></div><h3 data-copy-id="TOP-PRG-09">かけっこ</h3><div class="meta" data-copy-id="TOP-PRG-10">低学年クラス新設</div><p data-copy-id="TOP-PRG-11">正しい走り方で「速くなった！」を体感。運動会前にも。</p></div>
-      <div class="card reveal photo" data-photo-slot="IMG-PRG-04"><span class="photo-top"><img src="assets/img/class-slackline-01.jpg" alt="スラックラインの教室風景" loading="lazy"></span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14c5 0 5-4 9-4s4 4 9 4"/><circle cx="12" cy="6" r="2"/></svg></div><h3 data-copy-id="TOP-PRG-12">スラックライン</h3><div class="meta" data-copy-id="TOP-PRG-13">バランス感覚</div><p data-copy-id="TOP-PRG-14">細いラインの上でバランス遊び。集中力と体幹がぐんぐん育つ。</p></div>
-      <div class="card reveal photo" data-photo-slot="IMG-PRG-05"><span class="photo-top"><img src="assets/img/class-doubledutch-01.jpg" style="object-position:center 40%" alt="ダブルダッチ&amp;なわとびの教室風景" loading="lazy"></span><span class="tag">新設</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4v16M19 4v16M5 8c4 4 10 4 14 0M5 16c4-4 10-4 14 0"/></svg></div><h3 data-copy-id="TOP-PRG-15">ダブルダッチ&amp;なわとび</h3><div class="meta" data-copy-id="TOP-PRG-16">新設 ・ 日本代表経験の講師</div><p data-copy-id="TOP-PRG-17">2本の縄でリズミカルに。短縄とダブルダッチを毎回30分ずつ。</p></div>
+      <a class="card reveal photo" href="classes/taiso.html" data-photo-slot="IMG-PRG-01"><span class="photo-top"><img src="assets/img/class-taiso-01.jpg" style="object-position:center 32%" alt="子ども体操の教室風景" loading="lazy"></span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.4"/><path d="M5 21l4-7 3 2 3-2 4 7M12 7v6"/></svg></div><h3 data-copy-id="TOP-PRG-03">子ども体操</h3><div class="meta" data-copy-id="TOP-PRG-04">主力 ・ 9クラス</div><p data-copy-id="TOP-PRG-05">マット・跳び箱・鉄棒の基礎から。運動の土台をつくる人気No.1。</p><span class="more">詳しく見る<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span></a>
+      <a class="card reveal photo" href="classes/tumbling.html" data-photo-slot="IMG-PRG-02"><span class="photo-top"><img src="assets/img/class-tumbling-01.jpg" alt="タンブリングの教室風景" loading="lazy"></span><span class="tag">人気</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16c4-6 12-6 16 0M7 12c2-3 8-3 10 0"/><circle cx="12" cy="6" r="2"/></svg></div><h3 data-copy-id="TOP-PRG-06">タンブリング</h3><div class="meta" data-copy-id="TOP-PRG-07">バク転に挑戦 ・ 単発参加のクラス</div><p data-copy-id="TOP-PRG-08">側転・ロンダート・バク転へ。できる技がどんどん増える達成感。</p><span class="more">詳しく見る<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span></a>
+      <a class="card reveal photo" href="classes/kakekko.html" data-photo-slot="IMG-PRG-03"><span class="photo-top"><img src="assets/img/class-kakekko-01.jpg" style="object-position:center 62%" alt="かけっこの教室風景" loading="lazy"></span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18h6l3-12 3 9 2-4h4"/></svg></div><h3 data-copy-id="TOP-PRG-09">かけっこ</h3><div class="meta" data-copy-id="TOP-PRG-10">低学年クラス新設</div><p data-copy-id="TOP-PRG-11">正しい走り方で「速くなった！」を体感。運動会前にも。</p><span class="more">詳しく見る<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span></a>
+      <a class="card reveal photo" href="classes/slackline.html" data-photo-slot="IMG-PRG-04"><span class="photo-top"><img src="assets/img/class-slackline-01.jpg" alt="スラックラインの教室風景" loading="lazy"></span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14c5 0 5-4 9-4s4 4 9 4"/><circle cx="12" cy="6" r="2"/></svg></div><h3 data-copy-id="TOP-PRG-12">スラックライン</h3><div class="meta" data-copy-id="TOP-PRG-13">バランス感覚</div><p data-copy-id="TOP-PRG-14">細いラインの上でバランス遊び。集中力と体幹がぐんぐん育つ。</p><span class="more">詳しく見る<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span></a>
+      <a class="card reveal photo" href="classes/doubledutch.html" data-photo-slot="IMG-PRG-05"><span class="photo-top"><img src="assets/img/class-doubledutch-01.jpg" style="object-position:center 40%" alt="ダブルダッチ&amp;なわとびの教室風景" loading="lazy"></span><span class="tag">新設</span><div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4v16M19 4v16M5 8c4 4 10 4 14 0M5 16c4-4 10-4 14 0"/></svg></div><h3 data-copy-id="TOP-PRG-15">ダブルダッチ&amp;なわとび</h3><div class="meta" data-copy-id="TOP-PRG-16">新設 ・ 日本代表経験の講師</div><p data-copy-id="TOP-PRG-17">2本の縄でリズミカルに。短縄とダブルダッチを毎回30分ずつ。</p><span class="more">詳しく見る<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M12 5l7 7-7 7"/></svg></span></a>
       <div class="card reveal" style="background:linear-gradient(135deg,#fff6d6,#fff);display:flex;flex-direction:column;justify-content:center"><h3 style="font-size:1.1rem" data-copy-id="TOP-PRG-18">どれが合うか迷ったら？</h3><p style="margin:10px 0 14px" data-copy-id="TOP-PRG-19">無料体験で雰囲気を確かめてから決められます。</p><a class="btn btn-cta" href="apply.html" style="align-self:flex-start"><span data-copy-id="TOP-PRG-20">体験で相談する</span> →</a></div>
     </div>
   </div>
@@ -408,11 +418,11 @@
       <a class="foot-logo" href="#"><img src="assets/logo-yoko-white.svg" alt="SPORTS ASSISTANTS"></a>
       <p style="margin-top:14px;max-width:30ch" data-copy-id="TOP-FTR-01">特定非営利活動法人 Sports Assistants が運営する、出張型スポーツ教室です。</p>
     </div>
-    <div><h5>教室</h5><div data-footer-programs><a href="#programs">子ども体操</a><a href="#programs">タンブリング</a><a href="#programs">かけっこ</a><a href="#programs">スラックライン</a><a href="#programs">ダブルダッチ&amp;なわとび</a></div></div>
-    <div><h5>ご案内</h5><a href="#news">お知らせ</a><a href="#price">料金</a><a href="#transfer">振替制度</a><a href="#venues">会場</a><a href="#cta">無料体験</a></div>
+    <div><h5>教室</h5><div data-footer-programs><a href="classes/taiso.html">子ども体操</a><a href="classes/tumbling.html">タンブリング</a><a href="classes/kakekko.html">かけっこ</a><a href="classes/slackline.html">スラックライン</a><a href="classes/doubledutch.html">ダブルダッチ&amp;なわとび</a></div></div>
+    <div><h5>ご案内</h5><a href="schedule.html">スケジュール</a><a href="#news">お知らせ</a><a href="#price">料金</a><a href="#transfer">振替制度</a><a href="#venues">会場</a><a href="#cta">無料体験</a><a href="#about">法人について</a></div>
     <div><h5>お問い合わせ</h5><a href="mailto:info@nposa.jp" data-copy-id="TOP-FTR-02">info@nposa.jp</a><a href="https://nposa.jp/club_admin/login">会員ログイン</a></div>
   </div>
-  <div class="wrap copy"><span data-copy-id="TOP-FTR-03">© Sports Assistants</span><span>最終更新 2026-08-17</span></div>
+  <div class="wrap copy"><span data-copy-id="TOP-FTR-03">© Sports Assistants</span><span>最終更新 2026-08-20</span></div>
 </footer>
 
 <script>

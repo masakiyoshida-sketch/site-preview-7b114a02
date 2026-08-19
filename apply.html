@@ -162,7 +162,7 @@
   <div class="wrap nav">
     <a class="logo" href="index.html" aria-label="練馬西東京スポーツ教室 トップ"><img class="mark-img" src="assets/mark.svg" alt=""><span class="site-name">練馬西東京スポーツ教室</span></a>
     <span class="spacer"></span>
-    <nav><a href="index.html#programs">教室</a><a href="index.html#transfer">振替制度</a><a href="index.html#price">料金</a><a href="index.html#venues">会場</a><a href="index.html#about">法人について</a></nav>
+    <nav><a href="index.html#news">お知らせ</a><a href="index.html#programs">教室</a><a href="schedule.html">スケジュール</a><a href="index.html#transfer">振替制度</a><a href="index.html#price">料金</a><a href="index.html#venues">会場</a></nav>
     <a class="login hide-sp" href="https://nposa.jp/club_admin/login">会員ログイン</a>
     <a class="btn btn-ghost" href="index.html">トップへ</a>
   </div>
@@ -236,6 +236,7 @@
                 <option>下石小タンブリング教室（木・単発参加のみ）</option>
                 <option>【チア限定】下石小タンブリング教室（火・単発参加のみ）</option>
                 <option>スラックライン開放（土・単発参加のみ）</option>
+                <option>スラックライン開放（金夜・単発参加のみ）</option>
                 <option>スラックライン開放（木・単発参加のみ）</option>
               </optgroup>
               <optgroup label="その他">
@@ -370,11 +371,11 @@
       <a class="foot-logo" href="index.html"><img src="assets/logo-yoko-white.svg" alt="SPORTS ASSISTANTS"></a>
       <p style="margin-top:14px;max-width:30ch">特定非営利活動法人 Sports Assistants が運営する、出張型スポーツ教室です。</p>
     </div>
-    <div><h5>教室</h5><a href="index.html#programs">子ども体操</a><a href="index.html#programs">タンブリング</a><a href="index.html#programs">かけっこ</a><a href="index.html#programs">スラックライン</a><a href="index.html#programs">ダブルダッチ</a></div>
-    <div><h5>ご案内</h5><a href="index.html#news">お知らせ</a><a href="index.html#price">料金</a><a href="index.html#transfer">振替制度</a><a href="index.html#venues">会場</a></div>
+    <div><h5>教室</h5><a href="classes/taiso.html">子ども体操</a><a href="classes/tumbling.html">タンブリング</a><a href="classes/kakekko.html">かけっこ</a><a href="classes/slackline.html">スラックライン</a><a href="classes/doubledutch.html">ダブルダッチ</a></div>
+    <div><h5>ご案内</h5><a href="schedule.html">スケジュール</a><a href="index.html#news">お知らせ</a><a href="index.html#price">料金</a><a href="index.html#transfer">振替制度</a><a href="index.html#venues">会場</a></div>
     <div><h5>お問い合わせ</h5><a href="mailto:info@nposa.jp">info@nposa.jp</a><a href="https://nposa.jp/club_admin/login">会員ログイン</a></div>
   </div>
-  <div class="wrap copy"><span>© Sports Assistants</span><span>最終更新 2026-08-17</span></div>
+  <div class="wrap copy"><span>© Sports Assistants</span><span>最終更新 2026-08-20</span></div>
 </footer>
 
 <script>
@@ -505,6 +506,46 @@
       ? `このクラスは毎週${day}曜です。単発参加のみのクラスのため、体験ではなく1回ごとのお申し込みになります。`
       : `このクラスは毎週${day}曜です。希望日は${day}曜の日付をお選びください。`;
   });
+
+  // 教室詳細ページから来たときのクラス絞り込み（?class=クラス名 / ?subject=種目slug）。
+  // 選択肢自体は消さない（他の種目も選べる状態を保つ）。
+  const SUBJECT_GROUPS = {
+    taiso: '体操', tumbling: 'タンブリング', kakekko: 'かけっこ',
+    slackline: 'スラックライン', doubledutch: 'ダブルダッチ'
+  };
+  (function presetClass() {
+    const params = new URLSearchParams(location.search);
+    const sel = document.getElementById('wishClass');
+    const wanted = params.get('class');
+    if (wanted) {
+      const hit = [...sel.options].find(o => o.value === wanted);
+      if (hit) {
+        sel.value = hit.value;
+        sel.dispatchEvent(new Event('change'));   // 曜日ヒントも同時に出す
+        return;
+      }
+      console.warn('URLで指定されたクラスが選択肢にありません:', wanted);
+    }
+    const slug = params.get('subject');
+    const label = SUBJECT_GROUPS[slug];
+    if (!label) return;
+    // 該当種目の optgroup を先頭に寄せて、探す手間を減らす（選択はユーザーに委ねる）
+    const groups = [...sel.querySelectorAll('optgroup')];
+    // グループ名が種目そのもの（例「スラックライン」）のものを優先し、
+    // 次に、その種目のクラスを含む混在グループ（例「タンブリング・バク転／開放クラス」）を寄せる
+    const byLabel = groups.filter(g => g.label.includes(label));
+    const byOption = groups.filter(g => !byLabel.includes(g) &&
+      [...g.children].some(o => o.textContent.includes(label)));
+    const target = [...byLabel, ...byOption];
+    if (!target.length) return;
+    target.forEach(g => sel.appendChild(g));
+    groups.filter(g => !target.includes(g)).forEach(g => sel.appendChild(g));
+    const note = document.createElement('span');
+    note.className = 'hint';
+    note.style.color = 'var(--amber-ink)';
+    note.textContent = label + 'のクラスを上に表示しています（ほかの種目も選べます）。';
+    classHint.parentNode.insertBefore(note, classHint);
+  })();
 
   // 一度エラーになった項目は、入力し直した時点で赤を消す
   form.addEventListener('input', (ev) => {

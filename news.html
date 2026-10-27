@@ -96,6 +96,7 @@
   .na-body li{margin:.2em 0}
   .na-body hr{border:0;border-top:1px dashed #cfdcef;margin:1.4em 0}
   .na-body a{color:var(--blue);text-decoration:underline;word-break:break-all}
+  .na-body .na-inline{display:block;width:100%;max-width:560px;border-radius:14px;margin:.4em 0 1.2em;box-shadow:var(--shadow-sm)}
   .na-back{margin-top:28px}
   .na-back a{color:var(--blue);font-weight:700}
 </style>
@@ -131,10 +132,19 @@
 
   if (!API || API.indexOf('{{') === 0) { fail('お知らせは準備中です。'); return; }
 
-  if (id) {
+  function showArticle() {
     $('newsList').hidden = true;
     get('id=' + encodeURIComponent(id)).then(function(r){
-      if (!r.ok) { fail(r.error || 'お知らせが見つかりません。'); return; }
+      if (!r.ok) {
+        // 旧ブログのURL（移していない古い記事）などで見つからないときは、メッセージの下に一覧を出す
+        $('newsList').hidden = false;
+        $('newsList').innerHTML = '';
+        var p = document.createElement('p'); p.className = 'news-error';
+        p.textContent = 'お探しのお知らせは見つかりませんでした。最近のお知らせはこちらです。';
+        $('newsList').appendChild(p);
+        keep = true; more();
+        return;
+      }
       var n = r.item;
       document.title = n.title + '｜お知らせ｜NPO法人スポーツアシスタント';
       $('crumbTitle').textContent = ' ／ ' + n.title;
@@ -151,14 +161,13 @@
       }
       $('newsArticle').hidden = false;
     }).catch(function(){ fail('お知らせを読み込めませんでした。時間をおいてもう一度お試しください。'); });
-    return;
   }
 
-  var offset = 0;
+  var offset = 0, keep = false;
   function more(){
     get('list=1&limit=' + PAGE + '&offset=' + offset).then(function(r){
       if (!r.ok) { fail(r.error || 'お知らせを読み込めませんでした。'); return; }
-      if (offset === 0) $('newsList').innerHTML = '';
+      if (offset === 0 && !keep) $('newsList').innerHTML = '';
       if (offset === 0 && !r.items.length) { fail('現在、お知らせはありません。'); return; }
       r.items.forEach(function(n){ $('newsList').appendChild(itemEl(n)); });
       offset += r.items.length;
@@ -166,7 +175,7 @@
     }).catch(function(){ fail('お知らせを読み込めませんでした。時間をおいてもう一度お試しください。'); });
   }
   $('newsMoreBtn').addEventListener('click', more);
-  more();
+  if (id) showArticle(); else more();
 })();
 </script>
 

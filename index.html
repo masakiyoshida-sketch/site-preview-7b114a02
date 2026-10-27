@@ -119,6 +119,9 @@
   .news-empty{display:flex;align-items:center;gap:11px;color:var(--mut);font-size:.88rem;
     background:var(--cream);border:1px dashed #dbe5f3;border-radius:14px;padding:14px 16px}
   .news-empty svg{flex:0 0 auto;color:var(--blue-soft)}
+  a.news-item{color:inherit}
+  a.news-item:hover .nt{color:var(--blue);text-decoration:underline}
+  .news-head .news-all{margin-left:auto;font-size:.85rem;font-weight:700;color:var(--blue)}
 
   /* 掲載写真のトーンをそろえる（実ファイルは加工しない。CSSのみ） */
   .card .photo-top img,.venue .vph,.about-card .abph{filter:saturate(1.04) contrast(1.03) brightness(1.03)}
@@ -315,8 +318,8 @@
 
 <section class="news" id="news">
   <div class="wrap">
-    <div class="news-head"><div class="sec-tag">NEWS</div><h2>お知らせ</h2></div>
-    <div class="news-list" data-news><div class="news-empty"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>現在、新しいお知らせはありません。教室の予定やイベントはこちらでお知らせします。</div></div>
+    <div class="news-head"><div class="sec-tag">NEWS</div><h2>お知らせ</h2><a class="news-all" href="news.html" data-news-all hidden>一覧へ →</a></div>
+    <div class="news-list" data-news data-news-api="https://script.google.com/macros/s/AKfycbwXNzMnZ3wg1-cfgZj29ro5RL8OrJ7XDziJsBE59C0ICmBDVJs3SdOx9bzIsk5WRl8h/exec"><a class="news-item" href="news.html?id=N0001"><time>2026.10.27</time><span class="nt">【テスト】表示確認（すぐ消します）</span><span class="nb">見出しのテスト（改行）・ 箇条書きのテスト（改行）太字のテスト</span></a></div>
   </div>
 </section>
 
@@ -422,7 +425,7 @@
     <div><h5>ご案内</h5><a href="schedule.html">スケジュール</a><a href="#news">お知らせ</a><a href="#price">料金</a><a href="#transfer">振替制度</a><a href="#venues">会場</a><a href="#cta">無料体験</a><a href="#about">法人について</a></div>
     <div><h5>お問い合わせ</h5><a href="mailto:info@nposa.jp" data-copy-id="TOP-FTR-02">info@nposa.jp</a><a href="https://nposa.jp/club_admin/login">会員ログイン</a><a href="privacy.html">個人情報の取り扱い</a></div>
   </div>
-  <div class="wrap copy"><span data-copy-id="TOP-FTR-03">© Sports Assistants</span><span>最終更新 2026-09-28</span></div>
+  <div class="wrap copy"><span data-copy-id="TOP-FTR-03">© Sports Assistants</span><span>最終更新 2026-10-27</span></div>
 </footer>
 
 <script>
@@ -436,6 +439,27 @@
 
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*70)+'ms';io.observe(el)});
+
+  // お知らせ: スプシ「HPお知らせ」→ 配信GAS から最新を読み直す（ビルド時の控えを置き換える）
+  (function(){
+    const list=document.querySelector('[data-news-api]');
+    if(!list) return;
+    document.querySelector('[data-news-all]').hidden=false;
+    fetch(list.dataset.newsApi+'?list=1&limit=5').then(r=>r.json()).then(r=>{
+      if(!r.ok||!r.items) return;
+      list.innerHTML='';
+      if(!r.items.length){const d=document.createElement('div');d.className='news-empty';
+        d.textContent='現在、新しいお知らせはありません。教室の予定やイベントはこちらでお知らせします。';list.appendChild(d);return;}
+      r.items.forEach(n=>{
+        const a=document.createElement('a');a.className='news-item';a.href='news.html?id='+encodeURIComponent(n.id);
+        const t=document.createElement('time');t.textContent=String(n.date).replace(/-/g,'.');
+        const s=document.createElement('span');s.className='nt';s.textContent=n.title;
+        a.append(t,s);
+        if(n.excerpt){const b=document.createElement('span');b.className='nb';b.textContent=n.excerpt;a.append(b);}
+        list.appendChild(a);
+      });
+    }).catch(()=>{});   // 読めないときはビルド時の控えのまま
+  })();
 </script>
 </body>
 </html>
